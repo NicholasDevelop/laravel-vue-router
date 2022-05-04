@@ -24,6 +24,7 @@
                 <td>{{ $post->id }}</td>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->slug }}</td>
+                <td>{{ $post->category ? $post->category->name : '-' }}</td>
                 <td>{{ $post->published_at }}</td>
                 <td>{{ $post->created_at }}</td>
                 <td>
