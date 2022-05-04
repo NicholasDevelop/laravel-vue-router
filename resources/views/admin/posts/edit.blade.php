@@ -11,8 +11,21 @@
      
         <div class="form-group">
             <label for="title">Titolo*</label>
-            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{ old('title') ? : $post->title }}" aria-describedby="emailHelp">
+            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{ old('title',$post->title) }}" aria-describedby="emailHelp">
             @error('title')
+                <div class="invalid-feedback">{{ $message }}</div>                
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="category_id">Categoria</label>
+            <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
+                <option value="">-- nessuna --</option>
+                @foreach($categories as $key => $category)
+                    <option {{ old('category_id', optional( $post->category)->id ) == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            @error('category_id')
                 <div class="invalid-feedback">{{ $message }}</div>                
             @enderror
         </div>
