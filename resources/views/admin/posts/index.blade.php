@@ -28,7 +28,7 @@
                 <td>{{ $post->slug }}</td>
                 <td>{{ $post->category ? $post->category->name : '-' }}</td>
                 <td>
-                  @foreach($posts->tags as $key => $tag)
+                  @foreach($post->tags as $key => $tag)
                     <span class="badge badge-pill badge-info">{{ $tag->name }}</span>
                   @endforeach
                 </td>

@@ -28,6 +28,19 @@
             @enderror
         </div>
 
+        <label>Tags:</label>
+        <div class="d-flex" style="gap: 1rem;">
+            @foreach($tags as $key => $tag)
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" value="{{ $tag->id }}" name="tags[]" id="tags-{{ $tag->id }}">
+                    <label class="form-check-label" for="tags-{{ $tag->id }}">{{ $tag->name }}</label>
+                </div>
+            @endforeach
+        </div>
+        @error('tags')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+
         <div class="form-group">
             <label for="content">Contenuto dell'articolo*</label>
             <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="3">{{ old('content') }}</textarea>
