@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Modifica post: {{ $post->title }}</h2>
+<div class="container">
+    <h3>Modifica post: {{ $post->title }}</h3>
+</div>
 
 <div class="container">
 

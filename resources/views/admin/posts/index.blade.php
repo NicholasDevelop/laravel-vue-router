@@ -13,6 +13,7 @@
             <th scope="col">#</th>
             <th scope="col">Titolo</th>
             <th scope="col">Slug</th>
+            <th scope="col">Category</th>
             <th scope="col">Data Pubblicazione</th>
             <th scope="col">Data Creazione</th>
             <th scope="col"></th>
