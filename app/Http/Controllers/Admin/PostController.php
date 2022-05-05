@@ -101,7 +101,8 @@ class PostController extends Controller
             'title' => 'required|string|max:150',
             'content' => 'required|string',
             'published_at' => 'nullable|date|before_or_equal:today',
-            'category_id' => 'nullable|exists:categories,id'
+            'category_id' => 'nullable|exists:categories,id',
+            'tags' => 'exists:tags,id'
         ]);
 
         $data = $request->all();
@@ -110,6 +111,14 @@ class PostController extends Controller
             $slug = Post::getUniqueSlug( $data['title']);
             $data['slug'] = $slug;
         }
+
+        if(  array_key_exists('tags', $data) ){
+            $post->tags()->sync( $data['tags'] );
+        }else {
+            $post->tags()->sync( [] );
+        }
+        // ALTERNATIVA all'if per popolare l'array di tags:
+        // $ids = array_key_exists('tags',$data) ? $data['tags'] : [];
 
         $post->update($data);
         return redirect()->route('admin.posts.index');
