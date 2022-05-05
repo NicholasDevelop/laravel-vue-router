@@ -37,7 +37,7 @@
                 </div>
             @endforeach
         </div>
-        @error('tags')
+        @error('tags.*')
             <div class="text-danger">{{ $message }}</div>
         @enderror
 
