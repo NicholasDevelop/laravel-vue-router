@@ -14,6 +14,7 @@
             <th scope="col">Titolo</th>
             <th scope="col">Slug</th>
             <th scope="col">Category</th>
+            <th scope="col">Tags</th>
             <th scope="col">Data Pubblicazione</th>
             <th scope="col">Data Creazione</th>
             <th scope="col"></th>
@@ -26,6 +27,11 @@
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->slug }}</td>
                 <td>{{ $post->category ? $post->category->name : '-' }}</td>
+                <td>
+                  @foreach($posts->tags as $key => $tag)
+                    <span class="badge badge-pill badge-info">{{ $tag->name }}</span>
+                  @endforeach
+                </td>
                 <td>{{ $post->published_at }}</td>
                 <td>{{ $post->created_at }}</td>
                 <td>
