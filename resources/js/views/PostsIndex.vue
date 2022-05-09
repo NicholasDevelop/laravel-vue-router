@@ -1,18 +1,20 @@
 <template>
   <div>
       <div class="container">
-          <h3>Ultimi Post</h3>
+          <h1 class="text-center my-6">Ultimi Post</h1>
       </div>
-      <div class="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <div v-for="post in posts" :key="post.id">
-              {{ post.title }}
-          </div>
+      <div class="container grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+          <Card v-for="post in posts" :key="post.id" :post="post" />
       </div>
   </div>
 </template>
 
 <script>
+import Card from '../components/CardComponent.vue'
 export default {
+    components: {
+        Card,
+    },
     data(){
         return{
             posts: []
@@ -24,7 +26,8 @@ export default {
             axios.get('/api/posts')
             .then( res => {
                 const { posts } = res.data
-                this.posts = posts
+                console.log(posts)
+                this.posts = posts.data
             })
             .catch( err => {
                 console.warn(err)
