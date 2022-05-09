@@ -17,15 +17,9 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::with(['category','tags'])
-        ->where('published_at','!=',null)
-        ->orderBy('published_at','desc')
-        ->paginate(12);
+        $posts = Post::with(['category','tags'])->orderBy('created_at','desc')->limit(20)->get();
 
-        return response()->json([
-            'posts' => $posts,
-            'success' => true
-        ]);
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
