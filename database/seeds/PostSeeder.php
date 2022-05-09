@@ -29,7 +29,7 @@ class PostSeeder extends Seeder
             $post->title = $faker->words(8,true);
             $post->slug = Str::slug($post->title, '-');
             $post->content = $faker->paragraph(10,true);
-            $post->content = $faker->imageUrl(400, 400, true);
+            $post->image = $faker->imageUrl(400, 400, true);
             $post->published_at = $faker->randomElement([null, $faker->dateTime()]);
             $post->category_id = $faker->optional()->randomElement( $categoriesId );
 

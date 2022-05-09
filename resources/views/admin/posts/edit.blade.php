@@ -36,14 +36,15 @@
         <div class="d-flex" style="gap: 1rem;">
             @foreach($tags as $key => $tag)
                 <div class="form-group form-check">
-                    <input type="checkbox" {{ $post->tags->contains( $tag ) ? 'checked' : '' }} class="form-check-input" value="{{ $tag->id }}" name="tags[]" id="tags-{{ $tag->id }}">
+                    <input type="checkbox" {{ $post->tags->contains( $tag ) ? 'checked' : '' }} class="form-check-input" value="{{ $tag->id }}" name="tags[{{ $key }}]" id="tags-{{ $tag->id }}">
                     <label class="form-check-label" for="tags-{{ $tag->id }}">{{ $tag->name }}</label>
+                    
+                    @error('tags.{{$index}}')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
             @endforeach
         </div>
-        @error('tags.*')
-            <div class="text-danger">{{ $message }}</div>
-        @enderror
 
         <div class="form-group">
             <label for="content">Contenuto dell'articolo*</label>
