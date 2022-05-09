@@ -13,8 +13,28 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- Import TailWind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Styles -->
     <link href="{{ asset('css/front.css') }}" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+                container: {
+                    center: true,
+                },
+                colors: {
+                    clifford: '#da373d',
+                }
+            }
+          }
+        }
+      </script>
+
+
 </head>
 <body>
     <div id="root">
