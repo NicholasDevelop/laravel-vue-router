@@ -2187,7 +2187,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "footer[data-v-abfbddf2] {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n}", ""]);
+exports.push([module.i, "footer[data-v-abfbddf2] {\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -3710,8 +3710,14 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "app bg-zinc-800 text-white" },
-    [_c("Header"), _vm._v(" "), _c("router-view"), _vm._v(" "), _c("Footer")],
+    { staticClass: "app bg-zinc-800 text-white flex flex-col" },
+    [
+      _c("Header"),
+      _vm._v(" "),
+      _c("router-view", { staticClass: "grow" }),
+      _vm._v(" "),
+      _c("Footer"),
+    ],
     1
   )
 }

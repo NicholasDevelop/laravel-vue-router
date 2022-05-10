@@ -1,8 +1,8 @@
 <template>
-  <div class="app bg-zinc-800 text-white">
+  <div class="app bg-zinc-800 text-white flex flex-col">
       <Header />
       
-      <router-view></router-view>
+      <router-view class="grow"></router-view>
 
       <Footer />
   </div>
