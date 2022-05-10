@@ -3,10 +3,10 @@
         <nav>
             <ul class="flex align-center justify-center gap-8 py-4">
                 <li>
-                    <router-view to="/posts">Posts</router-view>
+                    <router-link to="/posts">Posts</router-link>
                 </li>
                 <li>
-                    <router-view :to="{ name: 'contact' }">Contact</router-view>
+                    <router-link :to="{ name: 'contact' }">Contact</router-link>
                 </li>
             </ul>
         </nav>

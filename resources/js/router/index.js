@@ -3,25 +3,25 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import Posts from '../pages/PostsIndex.vue'
-import Contact from '../pages/Contact.vue'
-import PostShow from '../pages/PostShow.vue'
+// import Posts from '../pages/PostsIndex.vue'
+// import Contact from '../pages/Contact.vue'
+// import PostShow from '../pages/PostShow.vue'
 
 const routes = [
     {
         path: '/posts',
         name: 'posts.index',
-        component: Posts
+        component: require('../pages/PostsIndex.vue').default
     },
     {
         path: '/posts/:slug',
         name: 'posts.show',
-        component: PostShow
+        component: require('../pages/PostShow.vue').default
     },
     {
         path: '/contact',
         name: 'contact',
-        component: Contact
+        component: require('../pages/Contact.vue').default
     }
 ]
 
