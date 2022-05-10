@@ -3,7 +3,7 @@
         <img src="https://picsum.photos/1920/350" class="w-full" alt="">
 
         <section>
-            <div class="container">
+            <div class="max-w-[750px] mx-auto py-10">
                 <h1 class="text-3xl mb-2">{{ post.title }}</h1>
                 <p class="text-orange-400 text-md" v-if="post.category">{{ post.category.name }}</p>
                 <ul class="flex gap-2 items-center">
@@ -35,6 +35,8 @@ export default {
             })
             .catch( err => {
                 console.warn( err )
+
+                this.$router.push('/404')
             })
         }
     },
