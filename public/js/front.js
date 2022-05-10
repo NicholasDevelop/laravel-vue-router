@@ -2013,24 +2013,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      post: null
+      post: null,
+      loading: true
     };
   },
-  mounted: function mounted() {
-    console.log(this.$route);
+  methods: {
+    fetchPost: function fetchPost() {
+      var _this = this;
+
+      axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (res) {
+        var post = res.data.post;
+        _this.post = post;
+        _this.loading = false;
+      })["catch"](function (err) {
+        console.warn(err);
+      });
+    }
   },
   beforeMount: function beforeMount() {
-    var _this = this;
-
-    axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (res) {
-      var post = res.data.post;
-      _this.post = post;
-    })["catch"](function (err) {
-      console.warn(err);
-    });
+    this.fetchPost();
   }
 });
 
@@ -3441,10 +3456,50 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "py-10" }, [
-    _vm._v("\n    " + _vm._s(_vm.$route.params.slug) + "\n    "),
-    _vm.post ? _c("h1", [_vm._v(_vm._s(_vm.post.title))]) : _vm._e(),
-  ])
+  return !_vm.loading
+    ? _c("div", { staticClass: "py-10" }, [
+        _c("img", {
+          staticClass: "w-full",
+          attrs: { src: "https://picsum.photos/1920/350", alt: "" },
+        }),
+        _vm._v(" "),
+        _c("section", [
+          _c("div", { staticClass: "container" }, [
+            _c("h1", { staticClass: "text-3xl mb-2" }, [
+              _vm._v(_vm._s(_vm.post.title)),
+            ]),
+            _vm._v(" "),
+            _vm.post.category
+              ? _c("p", { staticClass: "text-orange-400 text-md" }, [
+                  _vm._v(_vm._s(_vm.post.category.name)),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "ul",
+              { staticClass: "flex gap-2 items-center" },
+              _vm._l(_vm.post.tags, function (tag) {
+                return _c(
+                  "li",
+                  {
+                    key: tag.id,
+                    staticClass:
+                      "text-white/50 italic text-sm after:content-[',']",
+                  },
+                  [_vm._v(_vm._s(tag.name))]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "py-12",
+              domProps: { innerHTML: _vm._s(_vm.post.content) },
+            }),
+          ]),
+        ]),
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
