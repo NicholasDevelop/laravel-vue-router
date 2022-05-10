@@ -1,19 +1,19 @@
 <template>
   <div class="app bg-zinc-800 text-white">
       <Header />
-      <PostsGrid />
+      
+      <router-view></router-view>
+
       <Footer />
   </div>
 </template>
 
 <script>
-import PostsGrid from './PostsIndex.vue'
 import Header from './HeaderComponent.vue'
 import Footer from './FooterComponent.vue'
 
 export default {
     components: {
-        PostsGrid,
         Header,
         Footer
     }

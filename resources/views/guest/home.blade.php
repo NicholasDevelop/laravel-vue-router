@@ -38,7 +38,7 @@
 </head>
 <body>
     <div id="root">
-        prova
+        
     </div>
 
     <script src="{{ asset('js/front.js') }}"></script>
