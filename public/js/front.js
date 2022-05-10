@@ -3356,7 +3356,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        "post card rounded-lg border border-white/30 overflow-hidden",
+        "post card rounded-lg border border-white/30 overflow-hidden relative",
     },
     [
       _c("img", {
@@ -3383,7 +3383,8 @@ var render = function () {
               "li",
               {
                 key: tag.id,
-                staticClass: "tag bg-white/30 block px-4 rounded-full text-xs",
+                staticClass:
+                  "tag bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 block px-4 rounded-full text-xs mb-12",
               },
               [_vm._v(_vm._s(tag.name))]
             )
@@ -3398,7 +3399,8 @@ var render = function () {
             _c(
               "router-link",
               {
-                staticClass: "bg-orange-400 rounded-md px-3 py-1 text-sm",
+                staticClass:
+                  "bg-orange-400 rounded-md px-3 py-1 text-sm absolute bottom-6 insert-x-2/4 -translate-x-2/4",
                 attrs: {
                   tag: "button",
                   to: { name: "posts.show", params: { slug: _vm.post.slug } },
