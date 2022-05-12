@@ -11,14 +11,16 @@ class SendPostDeletedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $post;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($_post)
     {
-        //
+        $this->post = $_post;
     }
 
     /**

@@ -139,7 +139,7 @@ class PostController extends Controller
 
         $post->delete();
 
-        Mail::to('info@boolpress.com')->send( new SendPostDeletedMail() );
+        Mail::to('info@boolpress.com')->send( new SendPostDeletedMail( $post ) );
         // Mail::to($mail)->send( new SendPostDeletedMail() );
 
 

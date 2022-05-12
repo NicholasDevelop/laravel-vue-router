@@ -1,1 +1,1 @@
-<h1>Post eliminato con successo</h1>
+<h1>Post eliminato con successo: {{ $post->title }}</h1>

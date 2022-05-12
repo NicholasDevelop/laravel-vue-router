@@ -19,9 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::middleware('auth')
+Route::middleware('verified')
     ->namespace('Admin')
     ->name('admin.')
     ->prefix('admin')
